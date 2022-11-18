@@ -1,0 +1,47 @@
+/* @import '~font-awesome/css/font-awesome.css'; */
+
+.left-panel {
+  width: 30%;
+  display: inline-block;
+  position: fixed;
+}
+
+.right-panel {
+  width: 70%;
+  display: inline-block;
+  position: fixed;
+  left: 32%;
+  
+}
+
+.location-link {
+  text-decoration: underline;
+  color: cornflowerblue;
+  cursor: pointer;
+}
+
+.right-panel div {
+    margin-top: 20px;
+  }
+
+  .right-panel .day {
+    margin-right: 20px;
+    display: inline-block;
+  }
+
+.place-input, .add-city {
+  margin-right: 20px;
+}
+.right-panel b{
+  display: block;
+   margin-top: 20px;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* .fa {
+  font-size: 200px !important;
+  margin-right: 40px;
+} */

@@ -1,0 +1,50 @@
+<link
+  href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="left-panel">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <form [formGroup]="locationGroup" novalidate>
+    <input
+      #location
+      formControlName="location"
+      placeholder="Type city name"
+      type="text"
+      id="city"
+      name="city"
+      [required]="true"
+      class="place-input"
+    />
+    <button
+      class="add-city"
+      type="submit"
+      (click)="onSubmit(locationGroup.controls.location.value, true)"
+    >
+      Add City
+    </button>
+    <button type="button" (click)="clearWeatherData()">Clear</button>
+    <div *ngFor="let loc of locationsList">
+      <span class="location-link" (click)="selectedLocation(loc.location)">{{
+        loc.location
+      }}</span>
+      <span>{{ loc.data }}</span>
+    </div>
+  </form>
+</div>
+<div class="right-panel" *ngIf="showData">
+  <!-- <i class="fa fa-cloud"></i>
+        <i class='fas fa-arrow-alt-circle-left' style='font-size:48px;color:red'></i> -->
+  <div style="display:inline-block">
+    <div>{{ temperature }}C</div>
+    <div>{{ weatherDesc }}</div>
+    <div>Wind: {{ wind }}</div>
+    <div>Pressure: {{ pressure }}</div>
+    <div>Humidity: {{ humidity }}</div>
+  </div>
+  <b>Weekly Satus</b>
+  <div class="day" id="day0"></div>
+  <div class="day" id="day1"></div>
+  <div class="day" id="day2"></div>
+  <div class="day" id="day3"></div>
+  <div class="day" id="day4"></div>
+</div>
