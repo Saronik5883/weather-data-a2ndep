@@ -24,6 +24,7 @@ export class WeatherLocationComponent implements OnInit {
   public sunrise;
   public sunset;
   public time;
+  public counter;
   public showData = false;
   locationGroup = new FormGroup({
     location: new FormControl(),
@@ -95,6 +96,7 @@ export class WeatherLocationComponent implements OnInit {
   selectedLocation(location) {
     console.log('location', location);
     this.onSubmit(location, false);
+    this.counter = this.counter + 1;
   }
 
   clearWeatherData() {

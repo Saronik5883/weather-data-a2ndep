@@ -31,17 +31,12 @@
               display: inline-block;
               margin-left: 40px;
           }
-      </style>
+        </style>
         <p>
-          Location<span class = "tab"></span> 
-          Temperature<span class = "tab"></span> 
-          Time<span class = "tab"></span> 
-          Humidity in %<span class = "tab"></span> 
-          Sunrise<span class = "tab"></span> 
-          Sunset<span class = "tab"></span> 
-
+          Location<span class="tab"></span> Temperature<span class="tab"></span>
+          Time<span class="tab"></span> Humidity in %<span class="tab"></span>
+          Sunrise<span class="tab"></span> Sunset<span class="tab"></span>
         </p>
-        
       </div>
 
       <div *ngFor="let loc of locationsList">
@@ -53,18 +48,18 @@
               display: inline-block;
               margin-left: 40px;
           }
-      </style>
+        </style>
+        <script>
+          const result = [];
+          result[counter]=[]
+        </script>
 
         <p>
-          {{loc.location}}<span class = "tab"></span> 
-          {{temperature}}<span class = "tab"></span> 
-          {{time}}<span class = "tab"></span> 
-          {{humidity}}<span class = "tab"></span> 
-          {{sunrise}}<span class = "tab"></span> 
-          {{sunset}}<span class = "tab"></span> 
-
+          {{ loc.location }}<span class="tab"></span> {{ temperature
+          }}<span class="tab"></span> {{ time }}<span class="tab"></span>
+          {{ humidity }}<span class="tab"></span> {{ sunrise
+          }}<span class="tab"></span> {{ sunset }}<span class="tab"></span>
         </p>
-
       </div>
     </form>
   </div>
