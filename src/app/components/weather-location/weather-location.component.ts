@@ -21,6 +21,9 @@ export class WeatherLocationComponent implements OnInit {
   public pressure;
   public temperature;
   public humidity;
+  public sunrise;
+  public sunset;
+  public time;
   public showData = false;
   locationGroup = new FormGroup({
     location: new FormControl(),
@@ -40,6 +43,28 @@ export class WeatherLocationComponent implements OnInit {
         this.wind = success.wind.speed + 'ms  ' + success.wind.deg + ' deg';
         this.pressure = success.main.pressure;
         this.humidity = success.main.humidity;
+
+        this.time = success.dt;
+        var date = new Date(this.time * 1000);
+        var hours = date.getHours();
+        var minutes = '0' + date.getMinutes();
+        var seconds = '0' + date.getSeconds();
+        this.time = hours + ':' + minutes + ':' + seconds;
+
+        this.sunrise = success.sys.sunrise;
+        var date = new Date(this.sunrise * 1000);
+        var hours = date.getHours();
+        var minutes = '0' + date.getMinutes();
+        var seconds = '0' + date.getSeconds();
+        this.sunrise = hours + ':' + minutes + ':' + seconds;
+
+        this.sunset = success.sys.sunset;
+        var date = new Date(this.sunset * 1000);
+        var hours = date.getHours();
+        var minutes = '0' + date.getMinutes();
+        var seconds = '0' + date.getSeconds();
+        this.sunset = hours + ':' + minutes + ':' + seconds;
+
         this.temperature = (success.main.temp - 273.15).toFixed(1);
         if (isPush) {
           let appendedData = ' - ' + this.temperature + 'C ' + this.mainWeather;

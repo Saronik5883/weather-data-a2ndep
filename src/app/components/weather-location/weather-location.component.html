@@ -1,50 +1,105 @@
-<link
-  href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-  rel="stylesheet"
-/>
-<div class="left-panel">
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <form [formGroup]="locationGroup" novalidate>
-    <input
-      #location
-      formControlName="location"
-      placeholder="Type city name"
-      type="text"
-      id="city"
-      name="city"
-      [required]="true"
-      class="place-input"
-    />
-    <button
-      class="add-city"
-      type="submit"
-      (click)="onSubmit(locationGroup.controls.location.value, true)"
-    >
-      Add City
-    </button>
-    <button type="button" (click)="clearWeatherData()">Clear</button>
-    <div *ngFor="let loc of locationsList">
-      <span class="location-link" (click)="selectedLocation(loc.location)">{{
-        loc.location
-      }}</span>
-      <span>{{ loc.data }}</span>
-    </div>
-  </form>
-</div>
-<div class="right-panel" *ngIf="showData">
+<html>
+  <link
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <div class="center-panel">
+    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+    <form [formGroup]="locationGroup" novalidate>
+      <input
+        #location
+        formControlName="location"
+        placeholder="Type city name"
+        type="text"
+        id="city"
+        name="city"
+        [required]="true"
+        class="place-input"
+      />
+      <button
+        class="add-city"
+        type="submit"
+        (click)="onSubmit(locationGroup.controls.location.value, true)"
+      >
+        Add City
+      </button>
+      <button type="button" (click)="clearWeatherData()">Clear</button>
+
+      <div>
+        <style>
+          .tab {
+              display: inline-block;
+              margin-left: 40px;
+          }
+      </style>
+        <p>
+          Location<span class = "tab"></span> 
+          Temperature<span class = "tab"></span> 
+          Time<span class = "tab"></span> 
+          Humidity in %<span class = "tab"></span> 
+          Sunrise<span class = "tab"></span> 
+          Sunset<span class = "tab"></span> 
+
+        </p>
+        
+      </div>
+
+      <div *ngFor="let loc of locationsList">
+        <!-- <span class="location-link" (click)="selectedLocation(loc.location)">{{
+          loc.location
+        }}</span> -->
+        <style>
+          .tab {
+              display: inline-block;
+              margin-left: 40px;
+          }
+      </style>
+
+        <p>
+          {{loc.location}}<span class = "tab"></span> 
+          {{temperature}}<span class = "tab"></span> 
+          {{time}}<span class = "tab"></span> 
+          {{humidity}}<span class = "tab"></span> 
+          {{sunrise}}<span class = "tab"></span> 
+          {{sunset}}<span class = "tab"></span> 
+
+        </p>
+
+      </div>
+    </form>
+  </div>
+  <!-- <div class="right-panel" *ngIf="showData"> -->
   <!-- <i class="fa fa-cloud"></i>
         <i class='fas fa-arrow-alt-circle-left' style='font-size:48px;color:red'></i> -->
-  <div style="display:inline-block">
-    <div>{{ temperature }}C</div>
-    <div>{{ weatherDesc }}</div>
-    <div>Wind: {{ wind }}</div>
-    <div>Pressure: {{ pressure }}</div>
-    <div>Humidity: {{ humidity }}</div>
-  </div>
-  <b>Weekly Satus</b>
+  <!-- <div style="display:inline-block">
+      <div>{{ temperature }}C</div>
+      <div>{{ weatherDesc }}</div>
+      <div>Wind: {{ wind }}</div>
+      <div>Pressure: {{ pressure }}</div>
+      <div>Humidity: {{ humidity }}</div>
+      <div>Sunrise : {{ sunrise }}</div>
+      <div>Sunset : {{ sunset }}</div> -->
+  <!-- </div> -->
+  <!-- <table>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+      </tr>
+      <tr>
+        <td>Peter</td>
+        <td>Griffin</td>
+      </tr>
+      <tr>
+        <td>Lois</td>
+        <td>Griffin</td>
+      </tr>
+    </table> -->
+
+  <!-- <b>Weekly Satus</b>
   <div class="day" id="day0"></div>
   <div class="day" id="day1"></div>
   <div class="day" id="day2"></div>
   <div class="day" id="day3"></div>
-  <div class="day" id="day4"></div>
-</div>
+  <div class="day" id="day4"></div> -->
+  <!-- </div> -->
+</html>
